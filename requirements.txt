@@ -5,3 +5,4 @@ scikit-learn
 pip==22.2.2
 matplotlib
 seaborn
+openpyxl
