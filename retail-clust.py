@@ -5,6 +5,7 @@ import seaborn as sns
 from sklearn.cluster import KMeans
 
 df = pd.read_excel('dataset_processed.xlsx')
+df = df.drop(['Unnamed: 0'],axis=1)
 
 # Header Interface
 st.header("Isi dataset")
