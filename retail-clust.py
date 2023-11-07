@@ -8,16 +8,11 @@ from sklearn.cluster import KMeans
 df = pd.read_excel('processed_scale.xlsx')
 df = df.drop(['Unnamed: 0'], axis=1)
 
-df1 = pd.read_csv('OnlineRetail.csv', encoding='latin1')
-
 df2 = pd.read_excel('processed_nonscale.xlsx')
 df2 = df2.drop(['Unnamed: 0'], axis=1)
 
 # Header Interface
-st.header("Dataset original")
-st.write(df1)
-
-st.header("Isi dataset yang sudah diproses")
+st.header("Isi dataset")
 st.write(df2)
 
 # Create the slider for selecting the number of clusters (K)
