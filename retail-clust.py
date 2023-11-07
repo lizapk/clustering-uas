@@ -21,7 +21,7 @@ def k_means(n_clust):
     df['Labels'] = kmean.labels_
 
     st.subheader('Cluster Plot')
-    fig, axes = plt.subplots(3,1, figsize=(12, 20))
+    fig, axes = plt.subplots(3,1, figsize=(12, 40))
 
     sns.scatterplot(x=df['Amount'], y=df['Recency'], hue=df['Labels'], palette=sns.color_palette('hls', n_colors=n_clust), ax=axes[0])
     axes[0].set_title('Amount vs Recency')
