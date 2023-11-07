@@ -29,6 +29,11 @@ def k_means(n_clust):
     sns.scatterplot(x=df['Amount'], y=df['Frequency'], hue=df['Labels'], palette=sns.color_palette('hls', n_colors=n_clust), ax=axes[1])
     axes[1].set_title('Amount vs Frequency')
 
+    df2 = df.copy()  # Copy the DataFrame to avoid modifying the original
+    df2['Recency'] = X['Recency']  # Replace Recency with Recency from X
+    sns.scatterplot(x=df2['Amount'], y=df2['Frequency'], hue=df2['Recency'], palette=sns.color_palette('hls', n_colors=n_clust), ax=axes[2])
+    axes[2].set_title('Amount vs Frequency vs Recency')
+
     st.pyplot(fig)
 
 # Clustering process and scatter plot
