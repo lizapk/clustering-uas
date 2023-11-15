@@ -71,6 +71,8 @@ def plot_amount_vs_frequency_vs_recency(n_clust, df):
     ax.set_zlabel('Total Belanja')
     st.pyplot(fig)
 
+    plot_amount_vs_frequency_vs_recency(n_clust=n_clust, df=df)
+
 # Clustering process and scatter plot
 if st.button("Proses Klasterisasi dan Tampilkan Plot"):
     clusters = []
