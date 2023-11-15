@@ -62,16 +62,14 @@ def plot_amount_vs_frequency_vs_recency(n_clust, df):
     st.pyplot(fig)
 
     # 3D scatter plot
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
+    fig2 = plt.figure()
+    ax = fig2.add_subplot(111, projection='3d')
     ax.scatter(xs=df['Recency'], ys=df['Frequency'], zs=df['Amount'], c=df['Labels'])
     plt.title('Hasil Clustering')
     ax.set_xlabel('Total Selisih Hari Belanja')
     ax.set_ylabel('Frekuensi Belanja')
     ax.set_zlabel('Total Belanja')
-    st.pyplot(fig)
-
-    plot_amount_vs_frequency_vs_recency(n_clust=n_clust, df=df)
+    st.pyplot(fig2)
 
 # Clustering process and scatter plot
 if st.button("Proses Klasterisasi dan Tampilkan Plot"):
