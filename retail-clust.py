@@ -55,10 +55,11 @@ def plot_amount_vs_frequency_vs_recency(n_clust):
     fig, ax = plt.subplots(figsize=(10, 5))
 
     sns.scatterplot(x=df['Amount'], y=df['Frequency'], hue=df['Recency'], ax=ax)
+  
     # buat 3D scatter plot
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
-    ax.scatter(xs=df2['Recency'], ys=df2['Frequency'], zs=df2['Amount'], c=df2['Labels'])
+    ax.scatter(xs=df['Recency'], ys=df['Frequency'], zs=df['Amount'], c=df['Labels'])
     
     plt.title('Hasil Clustering')
     ax.set_xlabel('Total Selisih Hari Belanja')
