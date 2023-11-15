@@ -6,10 +6,10 @@ from sklearn.cluster import KMeans
 from mpl_toolkits.mplot3d import Axes3D
 
 # Load data
-df = pd.read_excel('processed_scale.xlsx')
+df = pd.read_excel('output_cluster.xlsx')
 df = df.drop(['Unnamed: 0'], axis=1)
 
-df2 = pd.read_excel('processed_nonscale.xlsx')
+df2 = pd.read_excel('processed_not_scale.xlsx')
 df2 = df2.drop(['Unnamed: 0'], axis=1)
 
 # Header Interface
