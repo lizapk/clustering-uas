@@ -47,20 +47,24 @@ def plot_amount_vs_frequency(n_clust):
     sns.scatterplot(x=df['Amount'], y=df['Frequency'], hue=df['Labels'], palette=sns.color_palette('hls', n_colors=n_clust), ax=ax)
     st.pyplot(fig)
 
-def plot_amount_vs_frequency_vs_recency(n_clust):
-    kmean = KMeans(n_clusters=n_clust, n_init=10).fit(df)
+def plot_amount_vs_frequency_vs_recency(n_clust, df):
+    kmean = KMeans(n_clusters=n_clust, n_init=10).fit(df[['Amount', 'Frequency', 'Recency']])
     df['Labels'] = kmean.labels_
 
     st.subheader('Total Belanja, Frekuensi Belanja dan Terakhir Kali Belanja')
-    fig, ax = plt.subplots(figsize=(10, 5))
 
+    # 2D scatter plot
+    fig, ax = plt.subplots(figsize=(10, 5))
     sns.scatterplot(x=df['Amount'], y=df['Frequency'], hue=df['Recency'], ax=ax)
-  
-    # buat 3D scatter plot
+    plt.title('2D Scatter Plot')
+    plt.xlabel('Total Belanja')
+    plt.ylabel('Frekuensi Belanja')
+    st.pyplot(fig)
+
+    # 3D scatter plot
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     ax.scatter(xs=df['Recency'], ys=df['Frequency'], zs=df['Amount'], c=df['Labels'])
-    
     plt.title('Hasil Clustering')
     ax.set_xlabel('Total Selisih Hari Belanja')
     ax.set_ylabel('Frekuensi Belanja')
